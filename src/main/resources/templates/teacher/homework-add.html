@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>发布作业</title>
+</head>
+
+<body style="
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    color: yellow;
+">
+
+<div style="
+    width: 420px;
+    padding: 30px;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    text-align: center;
+">
+
+    <h2 style="margin-bottom: 25px;">发布新作业</h2>
+
+    <form th:action="@{/teacher/homework/add}" method="post">
+
+        <div style="margin-bottom: 20px; text-align: left;">
+            <label>作业序号：</label><br>
+            <input type="text" name="homeworkNo" required
+                   style="
+                       width: 100%;
+                       padding: 8px;
+                       margin-top: 5px;
+                       border-radius: 5px;
+                       border: 1px solid #ccc;
+                   ">
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: left;">
+            <label>作业内容：</label><br>
+            <textarea name="content" rows="5" required
+                      style="
+                          width: 100%;
+                          padding: 8px;
+                          margin-top: 5px;
+                          border-radius: 5px;
+                          border: 1px solid #ccc;
+                      "></textarea>
+        </div>
+
+        <button type="submit"
+                style="
+                    padding: 8px 20px;
+                    background-color: yellow;
+                    color: black;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                ">
+            提交
+        </button>
+
+    </form>
+
+    <div style="margin-top: 20px;">
+        <a href="/teacher/homework"
+           style="color: yellow; text-decoration: underline;">
+            返回作业列表
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

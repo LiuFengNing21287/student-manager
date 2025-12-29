@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生端 - 作业查看</title>
+
+    <style>
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        /* 页面整体居中 */
+        .container {
+            width: 80%;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #409EFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #eef5ff;
+        }
+
+        /* 作业内容左对齐更易读 */
+        td.content {
+            text-align: left;
+        }
+
+        /* 没有作业时 */
+        .empty {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>作业列表</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 15%;">作业序号</th>
+            <th>作业内容</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="h : ${homeworks}">
+            <td th:text="${h.homeworkNo}"></td>
+            <td class="content" th:text="${h.content}"></td>
+        </tr>
+
+        <!-- 没有作业的提示 -->
+        <tr th:if="${#lists.isEmpty(homeworks)}">
+            <td colspan="2" class="empty">暂无作业</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

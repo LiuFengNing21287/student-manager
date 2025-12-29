@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生端</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body
+        style="
+    min-height: 100vh;
+    background: url('/img/student-bg.png') no-repeat center center fixed;
+    background-size: cover;
+  ">
+
+
+<nav class="navbar navbar-dark bg-primary mb-4">
+    <div class="container-fluid">
+        <span class="navbar-brand">学生端</span>
+        <a href="/logout" class="btn btn-light">退出</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="card shadow"
+         style="width: 600px; background: rgba(255,255,255,0.92);">
+    <div class="list-group">
+        <a href="/student/courses" class="list-group-item list-group-item-action">📚 课程查询 / 选课</a>
+        <a href="/student/scores" class="list-group-item list-group-item-action">📝 成绩查询</a>
+        <a href="/student/homework" class="list-group-item list-group-item-action">🎯 查看作业</a>
+        <a th:href="@{/chat}" class="list-group-item list-group-item-action">🔥 学生聊天</a>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
